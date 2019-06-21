@@ -5,10 +5,18 @@
  */
 package src;
 
+import src.display.Display;
+
 /**
  *
  * @author arthur
  */
 public class Game {
+    private Display display;
+
+    public Game() {
+        this.display = new Display("Pong");
+    }
+    
     
 }

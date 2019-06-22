@@ -23,7 +23,8 @@ public class Display {
     public Display(String titulo){
         this.frame = new JFrame(titulo);
         this.frame.setLocationRelativeTo(null); // a posição da janela não é atrelada a nenhum objeto da tela
+        this.frame.setResizable(Boolean.FALSE); // não pode ser redimensionada pelo usuário
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // se clicar em "exit", fecha a aplicação inteira
-        this.frame.setVisible(true);
+        this.frame.setVisible(Boolean.TRUE); // visível ao usuário
     }
 }

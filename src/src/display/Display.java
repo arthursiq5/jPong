@@ -5,6 +5,7 @@
  */
 package src.display;
 
+import java.awt.Canvas;
 import javax.swing.JFrame;
 
 /**
@@ -13,6 +14,7 @@ import javax.swing.JFrame;
  */
 public class Display {
     private JFrame frame;
+    private Canvas canvas; // responsável por renderizar a tela do jogo
     
     /**
      * 

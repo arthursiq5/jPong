@@ -5,6 +5,8 @@
  */
 package src;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import src.display.Display;
 import src.utils.Constantes;
 
@@ -12,15 +14,44 @@ import src.utils.Constantes;
  *
  * @author arthur
  */
-public class Game {
+public class Game implements Runnable{
+    private Thread thread;
     private Display display;
+    private boolean running;
 
     public Game() {
+        this.running = false;
         this.display = new Display(
             "Pong", 
             Constantes.LARGURA_DA_TELA.getValor(), //largura
             Constantes.ALTURA_DA_TELA.getValor() // altura
         );
+    }
+
+    @Override
+    public void run() { // executada paralelamente ao código
+        while(this.running){
+            System.out.println("ok");
+        }
+    }
+    
+    public synchronized void start(){
+        if(this.thread != null) return;// se a thread não for vazia, encerre
+        this.thread = new Thread(this);
+        
+        this.running = true;
+        
+        this.thread.start();
+        
+    }
+    
+    public synchronized void stop(){
+        if(this.thread == null) return;
+        try {
+            this.thread.join();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     

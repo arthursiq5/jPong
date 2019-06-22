@@ -6,6 +6,7 @@
 package src.display;
 
 import java.awt.Canvas;
+import java.awt.Dimension;
 import javax.swing.JFrame;
 
 /**
@@ -19,8 +20,17 @@ public class Display {
     /**
      * 
      * @param titulo 
+     * @param largura 
+     * @param altura 
      */
-    public Display(String titulo){
+    public Display(String titulo, int largura, int altura){
+        this.canvas = new Canvas();
+        
+        // define o tamanho da tela do jogo
+        this.canvas.setPreferredSize(new Dimension(largura, altura));
+        this.canvas.setMaximumSize(new Dimension(largura, altura));
+        this.canvas.setMinimumSize(new Dimension(largura, altura));
+        
         this.frame = new JFrame(titulo);
         this.frame.setLocationRelativeTo(null); // a posição da janela não é atrelada a nenhum objeto da tela
         this.frame.setResizable(Boolean.FALSE); // não pode ser redimensionada pelo usuário

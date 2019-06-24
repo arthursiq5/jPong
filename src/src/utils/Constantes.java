@@ -11,7 +11,8 @@ package src.utils;
  */
 public enum Constantes {
     LARGURA_DA_TELA(800),
-    ALTURA_DA_TELA(600);
+    ALTURA_DA_TELA(600),
+    FPS_JOGO(60);
     
     int valor;
 

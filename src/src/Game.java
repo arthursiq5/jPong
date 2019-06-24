@@ -30,8 +30,8 @@ public class Game implements Runnable{
 
     @Override
     public void run() { // executada paralelamente ao código
-        int FPS = 60;
-        double timePerTick = 1000000000 / FPS;
+        // definido cálculo de tempo (60 vezes por segundo)
+        double timePerTick = 1000000000 / Constantes.FPS_JOGO.getValor();
         double delta = 0;
         long now;
         long lastTime = System.nanoTime();

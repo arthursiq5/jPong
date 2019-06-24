@@ -7,6 +7,7 @@ package src.display;
 
 import java.awt.Canvas;
 import java.awt.Dimension;
+import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
 /**
@@ -40,5 +41,13 @@ public class Display {
         this.frame.setResizable(Boolean.FALSE); // não pode ser redimensionada pelo usuário
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // se clicar em "exit", fecha a aplicação inteira
         this.frame.setVisible(Boolean.TRUE); // visível ao usuário
+    }
+    
+    public BufferStrategy getBufferStrategy(){
+        return this.canvas.getBufferStrategy();
+    }
+    
+    public void createBufferStrategy(){
+        this.canvas.createBufferStrategy(3);
     }
 }

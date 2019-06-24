@@ -5,6 +5,9 @@
  */
 package src;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import src.display.Display;
@@ -81,7 +84,24 @@ public class Game implements Runnable{
     }
 
     private void render() {
+        BufferStrategy buffer = this.display.getBufferStrategy();
+        if(buffer == null){
+            this.display.createBufferStrategy();
+            buffer = this.display.getBufferStrategy();
+        }
         
+        Graphics pintura = buffer.getDrawGraphics(); // ferramenta de pintura do pacote awt
+        
+        pintura.setColor(Color.BLACK);
+        pintura.fillRect( // pinta a tela toda de preto
+            0, 
+            0, 
+            Constantes.LARGURA_DA_TELA.getValor(), 
+            Constantes.ALTURA_DA_TELA.getValor()
+        );
+        
+        pintura.dispose(); //disponibiliza a ferramenta de pintura para outros serviços
+        buffer.show(); // mostra as alterações na tela
     }
     
     

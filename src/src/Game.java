@@ -30,6 +30,8 @@ public class Game implements Runnable{
 
     @Override
     public void run() { // executada paralelamente ao código
+        this.init(); // inicializa os estados do jogo
+        
         // definido cálculo de tempo (60 vezes por segundo)
         double timePerTick = 1000000000 / Constantes.FPS_JOGO.getValor();
         double delta = 0;
@@ -44,7 +46,8 @@ public class Game implements Runnable{
             
             // cada vez que passar 1 segundo, execute
             if (delta >= 1) {
-                System.out.println(delta); // escreve o tempo passado
+                this.update(); // atualiza os estados
+                this.render(); // renderiza a tela
                 delta--;
             }
         }
@@ -67,6 +70,18 @@ public class Game implements Runnable{
         } catch (InterruptedException ex) {
             Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private void init() {
+        
+    }
+
+    private void update() {
+        
+    }
+
+    private void render() {
+        
     }
     
     

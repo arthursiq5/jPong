@@ -30,8 +30,23 @@ public class Game implements Runnable{
 
     @Override
     public void run() { // executada paralelamente ao código
+        int FPS = 60;
+        double timePerTick = 1000000000 / FPS;
+        double delta = 0;
+        long now;
+        long lastTime = System.nanoTime();
+        
         while(this.running){
-            System.out.println("ok");
+            
+            now = System.nanoTime();
+            delta += (now - lastTime) / timePerTick;
+            lastTime = now;
+            
+            // cada vez que passar 1 segundo, execute
+            if (delta >= 1) {
+                System.out.println(delta); // escreve o tempo passado
+                delta--;
+            }
         }
     }
     

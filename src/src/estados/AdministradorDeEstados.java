@@ -47,4 +47,12 @@ public class AdministradorDeEstados {
     public void render(Graphics pintura){
         this.estados[this.estadoAtual].render(pintura);
     }
+    
+    /**
+     * returns current state of application
+     * @return Estado
+     */
+    public Estado getEstado(){
+        return this.estados[this.estadoAtual];
+    }
 }

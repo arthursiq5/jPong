@@ -20,7 +20,7 @@ public class AdministradorDeEstados {
      * @param numeroDeEstados
      */
     public AdministradorDeEstados(int numeroDeEstados) {
-        this.numeroDeEstados = 2;
+        this.numeroDeEstados = numeroDeEstados;
         this.estados = new Estado[this.numeroDeEstados];
     }
     

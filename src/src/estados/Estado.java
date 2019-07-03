@@ -5,6 +5,8 @@
  */
 package src.estados;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author arthur
@@ -14,5 +16,5 @@ public interface Estado {
     
     public void update();
     
-    public void render();
+    public void render(Graphics g);
 }

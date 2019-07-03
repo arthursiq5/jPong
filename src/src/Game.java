@@ -11,6 +11,7 @@ import java.awt.image.BufferStrategy;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import src.display.Display;
+import src.estados.AdministradorDeEstados;
 import src.utils.Constantes;
 
 /**
@@ -21,9 +22,11 @@ public class Game implements Runnable{
     private Thread thread;
     private Display display;
     private boolean running;
+    private AdministradorDeEstados administrador;
 
     public Game() {
         this.running = false;
+        this.administrador = new AdministradorDeEstados(2);
         this.display = new Display(
             "Pong", 
             Constantes.LARGURA_DA_TELA.getValor(), //largura
@@ -79,9 +82,14 @@ public class Game implements Runnable{
         
     }
 
+    /**
+     * update game
+     */
     private void update() {
-        
+        if(this.administrador.getEstado() == null) return;
+        this.administrador.update();
     }
+    
     /**
      * render game
      * @access private
@@ -95,14 +103,14 @@ public class Game implements Runnable{
         }
         
         Graphics pintura = buffer.getDrawGraphics(); // ferramenta de pintura do pacote awt
-        
-        pintura.setColor(Color.BLACK);
-        pintura.fillRect( // pinta a tela toda de preto
+        pintura.clearRect(
             0, 
             0, 
             Constantes.LARGURA_DA_TELA.getValor(), 
             Constantes.ALTURA_DA_TELA.getValor()
         );
+        if(this.administrador.getEstado() != null)
+            this.administrador.render(pintura);
         
         pintura.dispose(); //disponibiliza a ferramenta de pintura para outros serviços
         buffer.show(); // mostra as alterações na tela

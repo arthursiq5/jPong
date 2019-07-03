@@ -6,24 +6,34 @@
 package src.utils;
 
 /**
- *
+ * collection of system´s constants
  * @author arthur
  */
 public enum Constantes {
+    /**
+     * @var width
+     */
     LARGURA_DA_TELA(800),
+    /**
+     * @var height
+     */
     ALTURA_DA_TELA(600),
     FPS_JOGO(60);
     
     int valor;
 
     /**
-     * 
+     * set value to enumerator
      * @param valor 
      */
     private Constantes(int valor) {
         this.valor = valor;
     }
     
+    /**
+     * return value of constant
+     * @return valor
+     */
     public int getValor(){
         return this.valor;
     }

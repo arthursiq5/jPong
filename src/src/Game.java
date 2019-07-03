@@ -82,7 +82,11 @@ public class Game implements Runnable{
     private void update() {
         
     }
-
+    /**
+     * render game
+     * @access private
+     * 
+     */
     private void render() {
         BufferStrategy buffer = this.display.getBufferStrategy();
         if(buffer == null){

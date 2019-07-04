@@ -6,6 +6,7 @@
 package src.estados;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import src.utils.Constantes;
 
@@ -15,6 +16,12 @@ import src.utils.Constantes;
  */
 public class FPSEstado implements Estado{
 
+    private long now;
+    private long lastTime = System.nanoTime();
+    private double timer = 0;
+    private int tick = 0;
+    private int t = 0;
+    
     @Override
     public void init() {
         
@@ -22,7 +29,10 @@ public class FPSEstado implements Estado{
 
     @Override
     public void update() {
-        
+        now = System.nanoTime();
+        this.timer += this.now - this.lastTime;
+        this.lastTime = this.now;
+        this.tick++;
     }
 
     @Override
@@ -34,6 +44,17 @@ public class FPSEstado implements Estado{
             Constantes.LARGURA_DA_TELA.getValor(), 
             Constantes.ALTURA_DA_TELA.getValor()
         );
+        if(this.timer >= 1000000000){
+            this.t = this.tick;
+            this.tick = 0;
+            this.timer = 0;
+        }
+        g.setColor(Color.WHITE);
+        Font fonte = new Font("Serif", Font.PLAIN, 12);
+        g.setFont(fonte);
+        
+        String mensagem = "FPS: " + t;
+        g.drawString(mensagem, 20, 20);
     }
     
 }

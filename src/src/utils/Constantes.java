@@ -11,11 +11,13 @@ package src.utils;
  */
 public enum Constantes {
     /**
-     * @var width
+     * @var LARGURA_DA_TELA
+     * width
      */
     LARGURA_DA_TELA(800),
     /**
-     * @var height
+     * @var ALTURA_DA_TELA
+     * height
      */
     ALTURA_DA_TELA(600),
     FPS_JOGO(60);

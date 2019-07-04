@@ -22,6 +22,7 @@ public class AdministradorDeEstados {
     public AdministradorDeEstados(int numeroDeEstados) {
         this.numeroDeEstados = numeroDeEstados;
         this.estados = new Estado[this.numeroDeEstados];
+        this.estados[0] = new FPSEstado();
     }
     
     /**

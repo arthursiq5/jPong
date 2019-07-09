@@ -27,6 +27,9 @@ public class FPSEstado implements Estado{
         
     }
 
+    /**
+     * realiza cálculo do FPS
+     */
     @Override
     public void update() {
         now = System.nanoTime();
@@ -35,6 +38,10 @@ public class FPSEstado implements Estado{
         this.tick++;
     }
 
+    /**
+     * renderiza o FPS atual na tela na tela
+     * @param g 
+     */
     @Override
     public void render(Graphics g) {
         g.setColor(Color.BLACK);
@@ -54,7 +61,16 @@ public class FPSEstado implements Estado{
         g.setFont(fonte);
         
         String mensagem = "FPS: " + t;
-        g.drawString(mensagem, 20, 20);
+        g.drawString(
+            // mensagem a ser exibida
+            mensagem, 
+            // posição horizontal baseada no tamanho da string
+            g.getFontMetrics()
+                    .stringWidth(mensagem), 
+            // posição vertical baseada no tamanho da fonte
+            g.getFontMetrics(fonte)
+                    .getHeight()
+        );
     }
     
 }

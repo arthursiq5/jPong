@@ -12,9 +12,31 @@ import java.awt.Graphics;
  * @author arthur
  */
 public interface Estado {
+    /**
+     * inicia o jogo
+     */
     public void init();
     
+    /**
+     * atualiza o jogo
+     */
     public void update();
     
-    public void render(Graphics g);
+    /**
+     * renderiza a tela
+     * @param grafico
+     */
+    public void render(Graphics grafico);
+    
+    /**
+     * evento de tecla pressionada
+     * @param codigo
+     */
+    public void KeyPress(int codigo);
+    
+    /**
+     * evento de soltar a tecla
+     * @param codigo 
+     */
+    public void KeyReleased(int codigo);
 }

@@ -72,5 +72,15 @@ public class FPSEstado implements Estado{
                     .getHeight()
         );
     }
+
+    @Override
+    public void KeyPress(int codigo) {
+        //
+    }
+
+    @Override
+    public void KeyReleased(int codigo) {
+        //
+    }
     
 }

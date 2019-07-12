@@ -6,12 +6,14 @@
 package src.estados;
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 /**
  *
  * @author arthur
  */
-public class AdministradorDeEstados {
+public class AdministradorDeEstados implements KeyListener{
     private final int numeroDeEstados;
     private Estado[] estados;
     private int estadoAtual = 0;
@@ -55,5 +57,20 @@ public class AdministradorDeEstados {
      */
     public Estado getEstado(){
         return this.estados[this.estadoAtual];
+    }
+
+    @Override
+    public void keyTyped(KeyEvent evento) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void keyPressed(KeyEvent evento) {
+        this.estados[this.estadoAtual].KeyPressed(evento.getKeyCode());
+    }
+
+    @Override
+    public void keyReleased(KeyEvent evento) {
+        this.estados[estadoAtual].KeyReleased(evento.getKeyCode());
     }
 }

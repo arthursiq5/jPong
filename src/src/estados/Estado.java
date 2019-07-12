@@ -32,7 +32,7 @@ public interface Estado {
      * evento de tecla pressionada
      * @param codigo
      */
-    public void KeyPress(int codigo);
+    public void KeyPressed(int codigo);
     
     /**
      * evento de soltar a tecla

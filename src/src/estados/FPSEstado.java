@@ -74,7 +74,7 @@ public class FPSEstado implements Estado{
     }
 
     @Override
-    public void KeyPress(int codigo) {
+    public void KeyPressed(int codigo) {
         //
     }
 

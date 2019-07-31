@@ -61,7 +61,7 @@ public class AdministradorDeEstados implements KeyListener{
 
     @Override
     public void keyTyped(KeyEvent evento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Não oferece suporte"); 
     }
 
     @Override

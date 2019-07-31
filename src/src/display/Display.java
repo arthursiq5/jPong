@@ -7,6 +7,7 @@ package src.display;
 
 import java.awt.Canvas;
 import java.awt.Dimension;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 
@@ -34,6 +35,8 @@ public class Display {
         this.canvas.setMaximumSize(new Dimension(largura, altura));
         this.canvas.setMinimumSize(new Dimension(largura, altura));
         
+        this.canvas.setFocusable(false);
+        
         this.frame.add(this.canvas); // passando canvas pro objeto
         this.frame.pack(); // puxa os dados de tamanho do componente interno
         
@@ -55,5 +58,13 @@ public class Display {
      */
     public void createBufferStrategy(){
         this.canvas.createBufferStrategy(3);
+    }
+    
+    /**
+     * 
+     * @param leitorDeTecla 
+     */
+    public void setKeyListener(KeyListener leitorDeTecla){
+        this.frame.addKeyListener(leitorDeTecla);
     }
 }

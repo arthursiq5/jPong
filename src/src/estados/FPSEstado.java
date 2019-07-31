@@ -75,12 +75,12 @@ public class FPSEstado implements Estado{
 
     @Override
     public void KeyPressed(int codigo) {
-        //
+        System.out.println("pressionou"+codigo);
     }
 
     @Override
     public void KeyReleased(int codigo) {
-        //
+        System.out.println("soltou"+codigo);
     }
     
 }

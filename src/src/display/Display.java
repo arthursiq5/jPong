@@ -43,10 +43,16 @@ public class Display {
         this.frame.setVisible(Boolean.TRUE); // visível ao usuário
     }
     
+    /**
+     * @return BufferStrategy
+     */
     public BufferStrategy getBufferStrategy(){
         return this.canvas.getBufferStrategy();
     }
     
+    /**
+     * cria o CufferStrategy
+     */
     public void createBufferStrategy(){
         this.canvas.createBufferStrategy(3);
     }

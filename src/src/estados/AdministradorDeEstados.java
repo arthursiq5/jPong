@@ -24,7 +24,8 @@ public class AdministradorDeEstados implements KeyListener{
     public AdministradorDeEstados(int numeroDeEstados) {
         this.numeroDeEstados = numeroDeEstados;
         this.estados = new Estado[this.numeroDeEstados];
-        this.estados[0] = new FPSEstado();
+        this.estados[0] = new MenuEstado();
+        this.estados[this.estadoAtual].init();
     }
     
     /**

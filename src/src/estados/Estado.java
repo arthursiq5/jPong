@@ -15,7 +15,7 @@ public interface Estado {
     /**
      * inicia o jogo
      */
-    public void init();
+    public void init(AdministradorDeEstados administradorDeEstados);
     
     /**
      * atualiza o jogo

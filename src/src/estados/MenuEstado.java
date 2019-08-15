@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 import src.utils.Constantes;
 
 /**
@@ -21,13 +22,15 @@ public class MenuEstado implements Estado {
     private String nomeDoJogo;
     private String[] opcoes = {"START", "HELP", "EXIT"};
     private int opcaoSelecionada;
+    private AdministradorDeEstados administradorDeEstados;
     
     @Override
-    public void init() {
+    public void init(AdministradorDeEstados administradorDeEstados) {
         this.fontePrincipal = new Font("Dialog", Font.PLAIN, 48);
         this.fonteOpcoes    = new Font("Dialog", Font.PLAIN, 24);
         this.nomeDoJogo = "PONG";
         this.opcaoSelecionada = 0;
+        this.administradorDeEstados = administradorDeEstados;
     }
 
     @Override
@@ -87,6 +90,25 @@ public class MenuEstado implements Estado {
             if (this.opcaoSelecionada > (this.opcoes.length -1)) {
                 this.opcaoSelecionada = 0;
             }
+        }
+        
+        if(codigo == KeyEvent.VK_ENTER){
+            this.seleciona();
+        }
+    }
+
+    private void seleciona() {
+        switch(this.opcaoSelecionada){
+            case 0:
+                administradorDeEstados.setState(IndiceEstados.FPS.getCodigo());
+                break;
+            case 1:
+                break;
+            case 2:
+                System.exit(0);
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "A opção selecionada não existe", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     

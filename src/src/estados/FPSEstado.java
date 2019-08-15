@@ -23,7 +23,7 @@ public class FPSEstado implements Estado{
     private int t = 0;
     
     @Override
-    public void init() {
+    public void init(AdministradorDeEstados administradorDeEstados) {
         
     }
 

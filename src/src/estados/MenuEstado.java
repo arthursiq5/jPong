@@ -8,6 +8,7 @@ package src.estados;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import src.utils.Constantes;
 
 /**
@@ -74,7 +75,19 @@ public class MenuEstado implements Estado {
 
     @Override
     public void KeyReleased(int codigo) {
+        if(codigo == KeyEvent.VK_W){
+            this.opcaoSelecionada--;
+            if (this.opcaoSelecionada < 0) {
+                this.opcaoSelecionada = this.opcoes.length -1;
+            }
+        }
         
+        if(codigo == KeyEvent.VK_S){
+            this.opcaoSelecionada++;
+            if (this.opcaoSelecionada > (this.opcoes.length -1)) {
+                this.opcaoSelecionada = 0;
+            }
+        }
     }
     
 }

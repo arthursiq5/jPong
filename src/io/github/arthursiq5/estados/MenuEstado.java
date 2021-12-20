@@ -79,21 +79,29 @@ public class MenuEstado implements Estado {
     @Override
     public void KeyReleased(int codigo) {
         if(codigo == KeyEvent.VK_W){
-            this.opcaoSelecionada--;
-            if (this.opcaoSelecionada < 0) {
-                this.opcaoSelecionada = this.opcoes.length -1;
-            }
+            this.cima();
         }
         
         if(codigo == KeyEvent.VK_S){
-            this.opcaoSelecionada++;
-            if (this.opcaoSelecionada > (this.opcoes.length -1)) {
-                this.opcaoSelecionada = 0;
-            }
+            this.baixo();
         }
         
         if(codigo == KeyEvent.VK_ENTER){
             this.seleciona();
+        }
+    }
+    
+    private void cima() {
+        this.opcaoSelecionada--;
+        if (this.opcaoSelecionada < 0) {
+            this.opcaoSelecionada = this.opcoes.length -1;
+        }
+    }
+    
+    private void baixo() {
+        this.opcaoSelecionada++;
+        if (this.opcaoSelecionada > (this.opcoes.length -1)) {
+            this.opcaoSelecionada = 0;
         }
     }
 

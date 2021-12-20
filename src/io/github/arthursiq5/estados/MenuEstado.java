@@ -23,6 +23,10 @@ public class MenuEstado implements Estado {
     private String[] opcoes = {"START", "HELP", "EXIT"};
     private int opcaoSelecionada;
     private AdministradorDeEstados administradorDeEstados;
+    private int x = 0;
+    private int y = 0;
+    private int movex = 1;
+    private int movey = 1;
     
     @Override
     public void init(AdministradorDeEstados administradorDeEstados) {
@@ -35,7 +39,8 @@ public class MenuEstado implements Estado {
 
     @Override
     public void update() {
-        
+        this.x += movex;
+        this.y += movey;
     }
 
     @Override
@@ -68,6 +73,24 @@ public class MenuEstado implements Estado {
                 (int) (largura/2) - grafico.getFontMetrics().stringWidth(this.opcoes[i]), 
                 (int) (altura * (0.75)) + (grafico.getFontMetrics(this.fonteOpcoes).getHeight() * i)
             );
+        }
+        this.animacaoDeFundo(grafico);
+    }
+    
+    private void animacaoDeFundo(Graphics grafico) {
+        grafico.setColor(Color.WHITE);
+        grafico.fillRect(this.x, this.y, 15, 15);
+        
+        this.limitesParaAnimacaoDeFundo();
+    }
+    
+    private void limitesParaAnimacaoDeFundo() {
+        if (this.x >= Constantes.LARGURA_DA_TELA.getValor() || this.x <= 0) {
+            this.movex *= -1;
+        }
+        
+        if (this.y >= Constantes.ALTURA_DA_TELA.getValor() || this.y <= 0) {
+            this.movey *= -1;
         }
     }
 

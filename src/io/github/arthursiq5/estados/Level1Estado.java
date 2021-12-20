@@ -15,6 +15,8 @@ import java.awt.Rectangle;
  */
 public class Level1Estado implements Estado {
     private Rectangle bola = new Rectangle(Constantes.LARGURA_DA_TELA.getCentro() - 5, Constantes.ALTURA_DA_TELA.getCentro() - 5, 10, 10);
+    private int movex = 1;
+    private int movey = 1;
 
     @Override
     public void init(AdministradorDeEstados administradorDeEstados) {
@@ -31,8 +33,26 @@ public class Level1Estado implements Estado {
         grafico.setColor(Color.BLACK);
         grafico.fillRect(0, 0, Constantes.LARGURA_DA_TELA.getValor(), Constantes.ALTURA_DA_TELA.getValor());
         
+        this.moveBola(grafico);
+    }
+    
+    private void moveBola(Graphics grafico) {
+        this.bola.x += this.movex;
+        this.bola.y += this.movey;
+        this.limitesBola();
+        
         grafico.setColor(Color.WHITE);
         grafico.fillRect(this.bola.x, this.bola.y, this.bola.width, this.bola.height);
+    }
+    
+    private void limitesBola() {
+        if (this.bola.x >= Constantes.LARGURA_DA_TELA.getValor() || this.bola.x <= 0) {
+            this.movex *= -1;
+        }
+        
+        if (this.bola.y >= Constantes.ALTURA_DA_TELA.getValor() || this.bola.y <= 0) {
+            this.movey *= -1;
+        }
     }
 
     @Override

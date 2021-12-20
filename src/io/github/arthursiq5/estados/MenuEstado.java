@@ -131,7 +131,7 @@ public class MenuEstado implements Estado {
     private void seleciona() {
         switch(this.opcaoSelecionada){
             case 0:
-                administradorDeEstados.setState(IndiceEstados.FPS.getCodigo());
+                administradorDeEstados.setState(IndiceEstados.LEVEL1.getCodigo());
                 break;
             case 1:
                 break;

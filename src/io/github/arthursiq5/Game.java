@@ -26,7 +26,7 @@ public class Game implements Runnable{
 
     public Game() {
         this.running = false;
-        this.administrador = new AdministradorDeEstados(2);
+        this.administrador = new AdministradorDeEstados();
         this.display = new Display(
             "Pong", 
             Constantes.LARGURA_DA_TELA.getValor(), //largura

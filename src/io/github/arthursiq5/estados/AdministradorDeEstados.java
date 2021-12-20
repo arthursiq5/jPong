@@ -14,19 +14,19 @@ import java.awt.event.KeyListener;
  * @author arthur
  */
 public class AdministradorDeEstados implements KeyListener{
-    private final int numeroDeEstados;
+    private final int numeroDeEstados = 3;
     private Estado[] estados;
     private int estadoAtual = 0;
     
     /**
      * @param numeroDeEstados
      */
-    public AdministradorDeEstados(int numeroDeEstados) {
-        this.numeroDeEstados = numeroDeEstados;
+    public AdministradorDeEstados() {
         this.estados = new Estado[this.numeroDeEstados];
         this.estados[0] = new MenuEstado();
         this.estados[this.estadoAtual].init(this);
         this.estados[1] = new FPSEstado();
+        this.estados[2] = new Level1Estado();
     }
     
     /**

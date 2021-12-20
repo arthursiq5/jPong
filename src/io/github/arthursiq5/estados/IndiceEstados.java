@@ -11,7 +11,8 @@ package io.github.arthursiq5.estados;
  */
 public enum IndiceEstados {
     MENU(0),
-    FPS(1);
+    FPS(1),
+    LEVEL1(2);
     
     private final int codigoDoEstado;
     

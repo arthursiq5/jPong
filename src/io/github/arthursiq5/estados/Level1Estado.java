@@ -25,7 +25,7 @@ public class Level1Estado implements Estado {
 
     @Override
     public void update() {
-        
+        this.moveBola();
     }
 
     @Override
@@ -33,14 +33,16 @@ public class Level1Estado implements Estado {
         grafico.setColor(Color.BLACK);
         grafico.fillRect(0, 0, Constantes.LARGURA_DA_TELA.getValor(), Constantes.ALTURA_DA_TELA.getValor());
         
-        this.moveBola(grafico);
+        this.desenhaBola(grafico);
     }
     
-    private void moveBola(Graphics grafico) {
+    private void moveBola() {
         this.bola.x += this.movex;
         this.bola.y += this.movey;
         this.limitesBola();
-        
+    }
+    
+    private void desenhaBola(Graphics grafico) {
         grafico.setColor(Color.WHITE);
         grafico.fillRect(this.bola.x, this.bola.y, this.bola.width, this.bola.height);
     }

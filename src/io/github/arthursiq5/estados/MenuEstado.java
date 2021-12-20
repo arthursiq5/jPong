@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package src.estados;
+package io.github.arthursiq5.estados;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-import src.utils.Constantes;
+import io.github.arthursiq5.utils.Constantes;
 
 /**
  *

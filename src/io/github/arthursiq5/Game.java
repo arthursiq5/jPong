@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package src;
+package io.github.arthursiq5;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import src.display.Display;
-import src.estados.AdministradorDeEstados;
-import src.utils.Constantes;
+import io.github.arthursiq5.display.Display;
+import io.github.arthursiq5.estados.AdministradorDeEstados;
+import io.github.arthursiq5.utils.Constantes;
 
 /**
  *

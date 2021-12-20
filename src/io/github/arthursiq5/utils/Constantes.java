@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package src.utils;
+package io.github.arthursiq5.utils;
 
 /**
  * collection of system´s constants

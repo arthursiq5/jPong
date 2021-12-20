@@ -39,6 +39,7 @@ public enum Constantes {
     public int getValor(){
         return this.valor;
     }
-    
-    
+    public int getCentro() {
+        return (int) this.valor / 2;
+    }
 }

@@ -4,6 +4,7 @@
  */
 package io.github.arthursiq5.estados;
 
+import io.github.arthursiq5.input.KeyManager;
 import io.github.arthursiq5.utils.Constantes;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -28,6 +29,14 @@ public class Level1Estado implements Estado {
     @Override
     public void update() {
         this.moveBola();
+        this.moveRaquetes();
+    }
+    
+    public void moveRaquetes() {
+        if (KeyManager.w) this.p1.y -= 8;
+        if (KeyManager.s) this.p1.y += 8;
+        if (KeyManager.up) this.p2.y -= 8;
+        if (KeyManager.down) this.p2.y += 8;
     }
 
     @Override

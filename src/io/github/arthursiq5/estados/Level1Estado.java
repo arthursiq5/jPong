@@ -37,6 +37,7 @@ public class Level1Estado implements Estado {
         if (KeyManager.s) this.p1.y += 8;
         if (KeyManager.up) this.p2.y -= 8;
         if (KeyManager.down) this.p2.y += 8;
+        this.limitesPlayers();
     }
 
     @Override
@@ -68,6 +69,17 @@ public class Level1Estado implements Estado {
         if (this.bola.y >= Constantes.ALTURA_DA_TELA.getValor() || this.bola.y <= 0) {
             this.movey *= -1;
         }
+    }
+    
+    private void limitesPlayers() {
+        if (this.p1.y < 0)
+            this.p1.y = 0;
+        if (this.p1.y > (Constantes.ALTURA_DA_TELA.getValor() - this.p1.height))
+            this.p1.y = Constantes.ALTURA_DA_TELA.getValor() - this.p1.height;
+        if (this.p2.y < 0)
+            this.p2.y = 0;
+        if (this.p2.y > (Constantes.ALTURA_DA_TELA.getValor() - this.p2.height))
+            this.p2.y = Constantes.ALTURA_DA_TELA.getValor() - this.p2.height;
     }
 
     @Override

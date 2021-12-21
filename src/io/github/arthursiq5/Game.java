@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import io.github.arthursiq5.display.Display;
 import io.github.arthursiq5.estados.AdministradorDeEstados;
+import io.github.arthursiq5.input.KeyManager;
 import io.github.arthursiq5.utils.Constantes;
 
 /**
@@ -23,10 +24,12 @@ public class Game implements Runnable{
     private Display display;
     private boolean running;
     private AdministradorDeEstados administrador;
+    private KeyManager keyManager;
 
     public Game() {
         this.running = false;
         this.administrador = new AdministradorDeEstados();
+        this.keyManager = new KeyManager();
         this.display = new Display(
             "Pong", 
             Constantes.LARGURA_DA_TELA.getValor(), //largura
@@ -89,6 +92,7 @@ public class Game implements Runnable{
     private void update() {
         if(this.administrador.getEstado() == null) return;
         this.administrador.update();
+        this.keyManager.update();
     }
     
     /**

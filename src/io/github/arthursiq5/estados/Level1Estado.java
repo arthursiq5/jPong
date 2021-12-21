@@ -9,6 +9,7 @@ import io.github.arthursiq5.utils.Constantes;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.util.Random;
 
 /**
  *
@@ -24,6 +25,14 @@ public class Level1Estado implements Estado {
     @Override
     public void init(AdministradorDeEstados administradorDeEstados) {
         
+    }
+    
+    public void start() {
+        this.bola.x = Constantes.LARGURA_DA_TELA.getCentro() - 5;
+        this.bola.y = Constantes.ALTURA_DA_TELA.getCentro() - 5;  
+        
+        Random r = new Random();
+        this.movex = (r.nextInt(2) == 0) ? 1: -1;
     }
 
     @Override
@@ -64,9 +73,10 @@ public class Level1Estado implements Estado {
     private void limitesBola() {
         if (this.bola.x >= Constantes.LARGURA_DA_TELA.getValor() || this.bola.x <= 0) {
             this.movex *= -1;
+            this.start();
         }
         
-        if (this.bola.y >= Constantes.ALTURA_DA_TELA.getValor() || this.bola.y <= 0) {
+        if ((this.bola.y + 15) >= Constantes.ALTURA_DA_TELA.getValor() || (this.bola.y - 5) <= 0) {
             this.movey *= -1;
         }
     }

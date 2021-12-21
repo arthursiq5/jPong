@@ -36,6 +36,7 @@ public class Game implements Runnable{
             Constantes.ALTURA_DA_TELA.getValor() // altura
         );
         this.display.setKeyListener(this.administrador);
+        this.display.setKeyListener(this.keyManager);
     }
 
     @Override

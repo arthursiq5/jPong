@@ -15,6 +15,8 @@ import java.awt.Rectangle;
  */
 public class Level1Estado implements Estado {
     private Rectangle bola = new Rectangle(Constantes.LARGURA_DA_TELA.getCentro() - 5, Constantes.ALTURA_DA_TELA.getCentro() - 5, 10, 10);
+    private Rectangle p1 = new Rectangle(0, 0, 10, 50);
+    private Rectangle p2 = new Rectangle(Constantes.LARGURA_DA_TELA.getValor() - 10, 0, 10, 50);
     private int movex = 1;
     private int movey = 1;
 
@@ -34,6 +36,8 @@ public class Level1Estado implements Estado {
         grafico.fillRect(0, 0, Constantes.LARGURA_DA_TELA.getValor(), Constantes.ALTURA_DA_TELA.getValor());
         
         this.desenhaBola(grafico);
+        grafico.fillRect(this.p1.x, this.p1.y, this.p1.width, this.p1.height);
+        grafico.fillRect(this.p2.x, this.p2.y, this.p2.width, this.p2.height);
     }
     
     private void moveBola() {

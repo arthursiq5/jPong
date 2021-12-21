@@ -24,7 +24,7 @@ public class Level1Estado implements Estado {
 
     @Override
     public void init(AdministradorDeEstados administradorDeEstados) {
-        
+        this.start();
     }
     
     public void start() {
@@ -72,7 +72,6 @@ public class Level1Estado implements Estado {
     
     private void limitesBola() {
         if (this.bola.x >= Constantes.LARGURA_DA_TELA.getValor() || this.bola.x <= 0) {
-            this.movex *= -1;
             this.start();
         }
         
